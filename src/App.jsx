@@ -182,7 +182,7 @@ function App() {
               <h1>
                 Membangun Teknologi,
                 <em>
-                  Mengembangkan Bisnis.
+                  Mengembangkan Bisnis Anda.
                 </em>
               </h1>
 
