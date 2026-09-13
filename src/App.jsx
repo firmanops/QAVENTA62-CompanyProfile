@@ -739,7 +739,7 @@ function App() {
             <p>
               Membangun Teknologi,
               <br />
-              Mengembangkan Bisnis.
+              Mengembangkan Bisnis Anda.
             </p>
 
           </div>
