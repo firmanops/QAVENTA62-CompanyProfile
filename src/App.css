@@ -425,3 +425,145 @@ footer { background:#09224a; color:#fff; }
   .hero-carousel-card b { font-size: 10px; }
   .hero-carousel-progress { left: 20px; right: 15px; bottom: 8px; }
 }
+
+/* =========================================================
+   QAVENTA62 DESKTOP 100% ZOOM FIX
+   Keeps the approved v9 typography and stabilizes the
+   hero layout for narrower desktop viewports (901-1250px).
+========================================================= */
+@media (min-width: 901px) and (max-width: 1250px) {
+  .hero-content {
+    width: min(1180px, calc(100% - 40px));
+    grid-template-columns: minmax(0, 590px) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .hero-copy {
+    max-width: 590px;
+    min-width: 0;
+  }
+
+  .hero-copy > p {
+    max-width: 560px;
+  }
+
+  .hero-visual {
+    min-width: 0;
+  }
+
+  .hero-image-wrapper {
+    inset: 0 -85px 20px 10px;
+  }
+
+  .hero-carousel-card-top {
+    right: 2px;
+  }
+
+  .hero-carousel-progress {
+    right: -25px;
+  }
+}
+
+
+/* =========================================================
+   QAVENTA62 HERO — DESKTOP 100% BALANCED
+   Target: make 100% desktop resemble the approved 90% view
+   without changing the mobile layout.
+========================================================= */
+@media (min-width: 901px) and (max-width: 1250px) {
+  .hero-content {
+    grid-template-columns: 570px minmax(0, 1fr);
+    gap: 14px;
+    width: min(1240px, calc(100% - 40px));
+  }
+
+  .hero-copy {
+    max-width: 570px;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-copy > p {
+    max-width: 570px;
+    margin-top: 24px;
+    margin-bottom: 28px;
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+
+  .hero-visual {
+    height: 510px;
+  }
+
+  .hero-image-wrapper {
+    inset: 12px 0 32px 28px;
+  }
+
+  .hero-carousel-card-top {
+    right: 0;
+  }
+
+  .hero-carousel-progress {
+    right: -30px;
+  }
+}
+
+/* Keep the normal wide-desktop design unchanged above 1250px. */
+@media (min-width: 1251px) {
+  .hero h1 {
+    font-size: clamp(46px, 5.5vw, 72px);
+  }
+}
+
+
+/* =========================================================
+   QAVENTA62 HERO — REFERENCE DESKTOP 100%
+   Based on the actual 836x470 (16:9) hero asset and the
+   user's approved 100% reference composition.
+
+   Important: do NOT stretch the frame to 900px+.
+   The reference image is approximately 840px wide.
+========================================================= */
+@media (min-width: 1251px) and (max-width: 1800px) {
+  .hero-image-wrapper {
+    left: 55px !important;
+    right: auto !important;
+    top: 0 !important;
+    bottom: auto !important;
+
+    width: 720px !important;
+    height: 405px !important;
+    aspect-ratio: 836 / 470 !important;
+
+    overflow: hidden !important;
+    border-radius: 28px;
+    transform: rotate(1.2deg);
+  }
+
+  .hero-image-layer {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+
+  .hero-team-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
+
+  .hero-carousel-card-top {
+    right: 0 !important;
+  }
+
+  .hero-carousel-progress {
+    left: 20px !important;
+    right: 0 !important;
+    bottom: 10px !important;
+  }
+}
