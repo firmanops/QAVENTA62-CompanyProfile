@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const solutions = [
@@ -78,8 +78,70 @@ const process = [
   ],
 ];
 
+const heroSlides = [
+  {
+    image: "/hero/01-website-company-profile.png",
+    alt: "Website Company Profile QAVENTA62 pada perangkat desktop dan mobile",
+    label: "WEBSITE",
+    title: "Company Profile",
+    icon: "◈",
+    meta: "DIGITAL PRESENCE",
+    code: "{ website: ready }",
+  },
+  {
+    image: "/hero/02-attendancesmart.png",
+    alt: "AttendanceSmart QAVENTA62 untuk absensi mobile dengan GPS dan geofence",
+    label: "ATTENDANCESMART",
+    title: "Smart Attendance",
+    icon: "◉",
+    meta: "GPS • FACE • FINGERPRINT",
+    code: "{ attendance: smart }",
+  },
+  {
+    image: "/hero/03-aplikasi-umkm.png",
+    alt: "Aplikasi UMKM QAVENTA62 untuk mendukung operasional bisnis",
+    label: "UMKM",
+    title: "Business Solution",
+    icon: "◆",
+    meta: "SALES • STOCK • REPORT",
+    code: "{ business: grow }",
+  },
+  {
+    image: "/hero/04-iklan-ai.png",
+    alt: "Iklan AI dan konten promosi QAVENTA62 untuk kebutuhan pemasaran bisnis",
+    label: "AI ADS",
+    title: "AI Content & Promotion",
+    icon: "✦",
+    meta: "CONTENT • CAMPAIGN • CREATIVE",
+    code: "{ ai: creative }",
+  },
+];
+
+const heroEffects = ["fade", "zoom", "slide-left", "slide-right", "blur"];
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [heroEffect, setHeroEffect] = useState("fade");
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroIndex((current) => {
+        let next = Math.floor(Math.random() * heroSlides.length);
+        while (next === current) {
+          next = Math.floor(Math.random() * heroSlides.length);
+        }
+        return next;
+      });
+
+      const nextEffect = heroEffects[Math.floor(Math.random() * heroEffects.length)];
+      setHeroEffect(nextEffect);
+    }, 5600);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const heroSlide = heroSlides[heroIndex];
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
@@ -182,7 +244,7 @@ function App() {
               <h1>
                 Membangun Teknologi,
                 <em>
-                  Mengembangkan Bisnis Anda.
+                  Mengembangkan Bisnis.
                 </em>
               </h1>
 
@@ -222,69 +284,50 @@ function App() {
 
 
             {/* =========================
-                HERO IMAGE
+                HERO CAROUSEL
             ========================== */}
-            <div
-              className="hero-visual"
-              aria-hidden="true"
-            >
+            <div className="hero-visual" aria-hidden="true">
 
-              <div className="hero-image-wrapper">
-
-                <img
-                  src="/background.png"
-                  alt="Tim QAVENTA62 sedang bekerja mengembangkan solusi teknologi"
-                  className="hero-team-image"
-                />
-
-                <div className="hero-image-overlay"></div>
-
-              </div>
-
-
-              {/* FLOATING CARD */}
-              <div className="floating-card attendance">
-
-                <span className="float-icon">
-                  ◉
-                </span>
-
-                <div>
-                  <small>
-                    ATTENDANCESMART
-                  </small>
-
-                  <b>
-                    Smart Attendance
-                  </b>
+              <div className={`hero-image-wrapper hero-transition-${heroEffect}`}>
+                <div className="hero-image-layer">
+                  <img
+                    key={`${heroSlide.image}-${heroIndex}`}
+                    src={heroSlide.image}
+                    alt={heroSlide.alt}
+                    className="hero-team-image"
+                  />
+                  <div className="hero-image-overlay"></div>
                 </div>
-
               </div>
 
-
-              {/* FLOATING CARD */}
-              <div className="floating-card umkm">
-
-                <span className="float-icon">
-                  ◆
-                </span>
-
+              <div className="hero-carousel-card hero-carousel-card-top">
+                <span className="float-icon">{heroSlide.icon}</span>
                 <div>
-                  <small>
-                    UMKM
-                  </small>
-
-                  <b>
-                    Business Solution
-                  </b>
+                  <small>{heroSlide.label}</small>
+                  <b>{heroSlide.title}</b>
                 </div>
-
               </div>
 
+              <div className="hero-carousel-card hero-carousel-card-bottom">
+                <span className="hero-status-dot"></span>
+                <div>
+                  <small>QAVENTA62 SOLUTION</small>
+                  <b>{heroSlide.meta}</b>
+                </div>
+              </div>
 
-              {/* CODE BADGE */}
-              <div className="code-pill">
-                {"{ solution: true }"}
+              <div className="code-pill">{heroSlide.code}</div>
+
+              <div className="hero-carousel-progress">
+                <span className="hero-carousel-count">0{heroIndex + 1} / 0{heroSlides.length}</span>
+                <div className="hero-carousel-dots">
+                  {heroSlides.map((slide, index) => (
+                    <span
+                      key={slide.image}
+                      className={`hero-carousel-dot ${index === heroIndex ? "active" : ""}`}
+                    ></span>
+                  ))}
+                </div>
               </div>
 
             </div>
@@ -739,7 +782,7 @@ function App() {
             <p>
               Membangun Teknologi,
               <br />
-              Mengembangkan Bisnis Anda.
+              Mengembangkan Bisnis.
             </p>
 
           </div>

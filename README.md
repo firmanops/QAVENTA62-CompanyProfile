@@ -1,13 +1,14 @@
-# Company Profile React
+# QAVENTA62 Company Profile - Hero Carousel
 
-Template company profile jasa perangkat lunak, Bahasa Indonesia.
+React + Vite company profile QAVENTA62 dengan hero carousel 4 visual solusi.
 
 ## Menjalankan
-1. Salin isi folder ini ke project React/Vite.
-2. `npm install`
-3. `npm run dev`
 
-## Catatan
-- Ganti `QAVENTA62` dengan nama perusahaan Anda.
-- Ganti email `info@qaventa62.id` pada App.jsx.
-- Tidak memakai library UI tambahan.
+```bash
+npm install
+npm run dev
+```
+
+Default dev port: 5175.
+
+Hero images berada di `public/hero/`. Carousel berganti otomatis setiap 5.6 detik dengan transition acak: fade, zoom, slide-left, slide-right, dan blur.
