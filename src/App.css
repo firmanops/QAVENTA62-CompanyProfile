@@ -1302,3 +1302,48 @@ footer { background:#09224a; color:#fff; }
     height: 210px !important;
   }
 }
+
+
+/* =========================================================
+   FINAL PORTFOLIO LAYOUT — 4 CARDS / 2 COLUMNS
+   Iklan AI & Konten Promosi pindah ke kanan Aplikasi UMKM.
+   Jangan mengubah section/layout lain.
+========================================================= */
+
+@media (min-width: 901px) {
+  .portfolio-card-wide {
+    grid-column: span 1 !important;
+  }
+
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-card-wide .portfolio-main-image {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+
+  .portfolio-card-wide .portfolio-main-image {
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+/* Mobile tetap 1 kolom */
+@media (max-width: 900px) {
+  .portfolio-card-wide {
+    grid-column: span 1 !important;
+  }
+
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-card-wide .portfolio-main-image {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-card-wide .portfolio-main-image {
+    min-height: 210px !important;
+    height: 210px !important;
+  }
+}
