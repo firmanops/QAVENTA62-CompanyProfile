@@ -37,11 +37,6 @@ const solutions = [
     icon: "✦",
     image: "/portfolio/ai-ads.png",
     video: "/portfolio/video/ai-content-card.mp4",
-    videos: [
-      "/portfolio/video/ai-content-card.mp4",
-      "/portfolio/video/credifox.mp4",
-      "/portfolio/video/Daiwa_Review_1.mp4",
-    ],
     features: ["AI Visual", "Video Content", "Campaign Creative"],
   },
 ];
@@ -163,7 +158,6 @@ function App() {
   const [websiteExampleIndex, setWebsiteExampleIndex] = useState(0);
   const [attendanceExampleIndex, setAttendanceExampleIndex] = useState(0);
   const [umkmExampleIndex, setUmkmExampleIndex] = useState(0);
-  const [aiVideoIndex, setAiVideoIndex] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -421,7 +415,7 @@ function App() {
             <div className="about-visual">
               <div className="about-image-frame">
                 <img
-                  src="/background.png"
+                  src="/about-qaventa62-wide.png"
                   alt="Tim QAVENTA62 mengembangkan solusi digital"
                   loading="lazy"
                 />
@@ -546,43 +540,19 @@ function App() {
                   <div className="solution-media">
                     {item.video ? (
                       <video
-                        key={
-                          item.title === "Iklan AI & Konten Promosi"
-                            ? item.videos?.[aiVideoIndex] || item.video
-                            : item.video
-                        }
                         className="solution-video"
                         poster={item.image}
                         autoPlay
                         muted
+                        loop
                         playsInline
                         preload="auto"
                         aria-label={item.title}
                         onLoadedData={(event) => {
                           event.currentTarget.play().catch(() => {});
                         }}
-                        onEnded={(event) => {
-                          if (
-                            item.title === "Iklan AI & Konten Promosi" &&
-                            item.videos?.length
-                          ) {
-                            setAiVideoIndex(
-                              (current) => (current + 1) % item.videos.length
-                            );
-                          } else {
-                            event.currentTarget.currentTime = 0;
-                            event.currentTarget.play().catch(() => {});
-                          }
-                        }}
                       >
-                        <source
-                          src={
-                            item.title === "Iklan AI & Konten Promosi"
-                              ? item.videos?.[aiVideoIndex] || item.video
-                              : item.video
-                          }
-                          type="video/mp4"
-                        />
+                        <source src={item.video} type="video/mp4" />
                       </video>
                     ) : (
                       <img
