@@ -57,6 +57,13 @@ const attendanceExamples = [
   { image: "/portfolio/attendance/04-approval-leave.png", label: "Approval Pengajuan Izin" },
 ];
 
+const umkmExamples = [
+  { image: "/portfolio/umkm/01-login-umkm.png", label: "Login Aplikasi UMKM" },
+  { image: "/portfolio/umkm/02-kasir-transaksi.png", label: "Kasir / Transaksi Penjualan" },
+  { image: "/portfolio/umkm/03-laporan-penjualan.png", label: "Laporan Penjualan" },
+  { image: "/portfolio/umkm/04-dashboard-umkm.png", label: "Dashboard UMKM" },
+];
+
 const strengths = [
   [
     "01",
@@ -150,6 +157,7 @@ function App() {
   const [heroEffect, setHeroEffect] = useState("fade");
   const [websiteExampleIndex, setWebsiteExampleIndex] = useState(0);
   const [attendanceExampleIndex, setAttendanceExampleIndex] = useState(0);
+  const [umkmExampleIndex, setUmkmExampleIndex] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -179,6 +187,14 @@ function App() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setAttendanceExampleIndex((current) => (current + 1) % attendanceExamples.length);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setUmkmExampleIndex((current) => (current + 1) % umkmExamples.length);
     }, 3000);
 
     return () => window.clearInterval(interval);
@@ -545,21 +561,27 @@ function App() {
                             ? websiteExamples[websiteExampleIndex].image
                             : item.title === "AttendanceSmart"
                               ? attendanceExamples[attendanceExampleIndex].image
-                              : item.image
+                              : item.title === "Aplikasi UMKM"
+                                ? umkmExamples[umkmExampleIndex].image
+                                : item.image
                         }
                         alt={
                           item.title === "Website Company Profile"
                             ? `Contoh Website Company Profile — ${websiteExamples[websiteExampleIndex].label}`
                             : item.title === "AttendanceSmart"
                               ? `AttendanceSmart — ${attendanceExamples[attendanceExampleIndex].label}`
-                              : item.title
+                              : item.title === "Aplikasi UMKM"
+                                ? `Aplikasi UMKM — ${umkmExamples[umkmExampleIndex].label}`
+                                : item.title
                         }
                         className={
                           item.title === "Website Company Profile"
                             ? "solution-main-image solution-web-flash"
                             : item.title === "AttendanceSmart"
                               ? "solution-main-image attendance-web-flash"
-                              : "solution-main-image"
+                              : item.title === "Aplikasi UMKM"
+                                ? "solution-main-image umkm-web-flash"
+                                : "solution-main-image"
                         }
                         loading="lazy"
                       />

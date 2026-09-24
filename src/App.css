@@ -1567,3 +1567,17 @@ footer { background:#09224a; color:#fff; }
   55% { opacity: 1; transform: scale(1.01); filter: blur(0); }
   100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
+
+/* =========================================================
+   APLIKASI UMKM — APP SCREEN FLASH
+   Only affects the Aplikasi UMKM solution card.
+========================================================= */
+.umkm-web-flash {
+  animation: umkmWebFlash 700ms cubic-bezier(.22,.75,.25,1);
+}
+
+@keyframes umkmWebFlash {
+  0% { opacity: 0; transform: scale(.985); filter: blur(2px); }
+  55% { opacity: 1; transform: scale(1.01); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
