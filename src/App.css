@@ -1212,6 +1212,15 @@ footer { background:#09224a; color:#fff; }
     width: 100%;
     max-width: 600px;
   }
+
+  /* ABOUT IMAGE — make the visual taller while keeping it clean */
+  .about-image-frame img {
+    width: 100%;
+    height: 390px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 
 /* Website Company Profile — rotating visual examples */
