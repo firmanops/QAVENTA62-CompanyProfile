@@ -1583,9 +1583,12 @@ footer { background:#09224a; color:#fff; }
 }
 
 /* =========================================================
-   QAVENTA62 — ABOUT MOBILE ONLY
-   Keep all existing Hero/mobile rules untouched.
+   QAVENTA62 — FINAL MOBILE HERO + ABOUT FIX
+   ONLY these two mobile areas are overridden.
+   All desktop / other sections remain unchanged.
 ========================================================= */
+
+/* About mobile fix */
 @media (max-width: 900px) {
   .about .two-col {
     grid-template-columns: 1fr !important;
@@ -1617,5 +1620,56 @@ footer { background:#09224a; color:#fff; }
 
   .about-image-frame {
     width: 100% !important;
+  }
+}
+
+/* Hero mobile fix — show the complete 16:9 artwork */
+@media (max-width: 680px) {
+  .hero-visual {
+    height: 255px !important;
+    width: 100% !important;
+    margin: 18px 0 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .hero-image-wrapper {
+    inset: 8px 8px 28px 8px !important;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-image-layer {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-team-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    background: #eaf4ff !important;
+  }
+
+  .hero-carousel-card-top {
+    top: 18px !important;
+    right: 6px !important;
+  }
+
+  .hero-carousel-card-bottom {
+    left: 6px !important;
+    bottom: 42px !important;
+  }
+
+  .hero-carousel-progress {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 5px !important;
   }
 }
