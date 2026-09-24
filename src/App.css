@@ -1478,3 +1478,81 @@ footer { background:#09224a; color:#fff; }
     min-height: 210px !important;
   }
 }
+
+
+/* =========================================================
+   FINAL OVERRIDE — PORTFOLIO IMAGE FULL BLEED
+   Remove the remaining left/right blank space.
+   Images fill the entire media box.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .portfolio-card .portfolio-media,
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+
+  .portfolio-card .portfolio-main-image,
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-card .portfolio-media,
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+
+  .portfolio-card .portfolio-main-image,
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
+    width: 100% !important;
+    max-width: none !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-card .portfolio-media,
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
+    height: 210px !important;
+    min-height: 210px !important;
+  }
+
+  .portfolio-card .portfolio-main-image,
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
+    height: 210px !important;
+    min-height: 210px !important;
+  }
+}
