@@ -1582,13 +1582,10 @@ footer { background:#09224a; color:#fff; }
   100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 
-
 /* =========================================================
-   QAVENTA62 — ABOUT SECTION MOBILE FIX
-   The About section's later desktop grid rule was overriding
-   the mobile one, pushing the image off-screen.
+   QAVENTA62 — ABOUT MOBILE ONLY
+   Keep all existing Hero/mobile rules untouched.
 ========================================================= */
-
 @media (max-width: 900px) {
   .about .two-col {
     grid-template-columns: 1fr !important;
