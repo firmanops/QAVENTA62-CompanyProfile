@@ -1216,43 +1216,10 @@ footer { background:#09224a; color:#fff; }
 
 /* Website Company Profile — rotating visual examples */
 .portfolio-web-flash {
-  animation: portfolioWebFlash 700ms cubic-bezier(.22,.75,.25,1);
+  animation: portfolioWebFlash 650ms ease;
 }
 
 @keyframes portfolioWebFlash {
-  0% { opacity: 0; transform: scale(.985); filter: blur(2px); }
-  55% { opacity: 1; transform: scale(1.01); filter: blur(0); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0); }
-}
-
-/* Keep every supplied website example inside one clean, consistent frame. */
-.portfolio-website-carousel .portfolio-media {
-  background: #eef5fc;
-}
-
-.portfolio-website-carousel .portfolio-main-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain !important;
-  object-position: center center;
-  border-radius: 14px;
-  background: #eef5fc;
-}
-
-/* PORTFOLIO / SOLUTIONS — show complete source screenshots without cropping */
-.solution-card:nth-child(1) .solution-media img,
-.solution-card:nth-child(2) .solution-media img,
-.solution-card:nth-child(3) .solution-media img {
-  object-fit: contain !important;
-  object-position: center center !important;
-  transform: none !important;
-  background: #f4f8fd;
-}
-
-.solution-card:nth-child(1):hover .solution-media img,
-.solution-card:nth-child(2):hover .solution-media img,
-.solution-card:nth-child(3):hover .solution-media img {
-  transform: none !important;
+  from { opacity: .15; transform: scale(.985); }
+  to { opacity: 1; transform: scale(1); }
 }

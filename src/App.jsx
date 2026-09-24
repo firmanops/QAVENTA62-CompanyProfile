@@ -6,29 +6,92 @@ const solutions = [
     number: "01",
     title: "Website Company Profile",
     description:
-      "Website profesional untuk membangun kredibilitas, memperkuat branding, dan memperluas kehadiran bisnis Anda di dunia digital.",
+      "Website profesional untuk membangun kredibilitas, memperkuat branding, dan memperluas kehadiran bisnis di dunia digital.",
     icon: "◈",
+    image: "/portfolio/website-company-profile.png",
+    features: ["Responsive", "Modern UI", "SEO Ready"],
   },
   {
     number: "02",
     title: "AttendanceSmart",
     description:
-      "Solusi digital untuk membantu perusahaan mengelola kehadiran dan absensi karyawan secara lebih mudah, terstruktur, dan efisien.",
+      "Sistem absensi digital untuk membantu perusahaan mengelola kehadiran karyawan secara lebih mudah, terstruktur, dan efisien.",
     icon: "◉",
+    image: "/portfolio/attendance/1.png",
+    features: ["GPS & Geofence", "Face Recognition", "Dashboard"],
   },
   {
     number: "03",
     title: "Aplikasi UMKM",
     description:
-      "Solusi aplikasi yang membantu pelaku UMKM mengelola aktivitas bisnis secara lebih terstruktur dan meningkatkan efisiensi operasional.",
+      "Solusi aplikasi untuk membantu pelaku UMKM mengelola produk, transaksi, penjualan, dan aktivitas operasional bisnis.",
     icon: "◆",
+    image: "/portfolio/umkm/1.png",
+    features: ["Produk & Stok", "Transaksi", "Laporan"],
   },
   {
     number: "04",
     title: "Iklan AI & Konten Promosi",
     description:
-      "Membantu bisnis membuat materi promosi berbasis AI untuk memperkenalkan produk, layanan, perusahaan, dan brand secara lebih menarik dan profesional.",
+      "Materi promosi berbasis AI untuk memperkenalkan produk, layanan, perusahaan, dan brand secara lebih menarik.",
     icon: "✦",
+    image: "/portfolio/ai-ads.png",
+    video: "/portfolio/video/ai-content-card.mp4",
+    features: ["AI Visual", "Video Content", "Campaign Creative"],
+  },
+];
+
+const websiteExamples = [
+  { image: "/portfolio/web-examples/corporate.png", label: "Corporate" },
+  { image: "/portfolio/web-examples/restaurant.png", label: "Restaurant / Café" },
+  { image: "/portfolio/web-examples/property.png", label: "Property / Real Estate" },
+  { image: "/portfolio/web-examples/ecommerce.png", label: "E-Commerce / Online Store" },
+  { image: "/portfolio/web-examples/clinic.png", label: "Clinic / Hospital" },
+  { image: "/portfolio/web-examples/education.png", label: "Education / School" },
+];
+
+const portfolio = [
+  {
+    title: "Website Company Profile",
+    category: "WEB DEVELOPMENT",
+    description:
+      "Website company profile dengan tampilan profesional untuk membantu bisnis membangun kehadiran digital.",
+    image: websiteExamples[0].image,
+    alt: `Contoh Website Company Profile — ${websiteExamples[0].label}`,
+    className: "portfolio-card-wide portfolio-website-carousel",
+  },
+  {
+    title: "AttendanceSmart",
+    category: "SMART ATTENDANCE",
+    description:
+      "Sistem absensi dengan dashboard administrasi dan dukungan fitur kehadiran berbasis mobile.",
+    image: "/portfolio/attendance/1.png",
+    alt: "Tampilan AttendanceSmart",
+    gallery: [
+      "/portfolio/attendance/2.png",
+      "/portfolio/attendance/3.png",
+    ],
+  },
+  {
+    title: "Aplikasi UMKM",
+    category: "BUSINESS APPLICATION",
+    description:
+      "Aplikasi untuk membantu operasional UMKM seperti dashboard, produk, transaksi, dan point of sale.",
+    image: "/portfolio/umkm/1.png",
+    alt: "Tampilan Aplikasi UMKM",
+    gallery: [
+      "/portfolio/umkm/2.png",
+      "/portfolio/umkm/3.png",
+    ],
+  },
+  {
+    title: "Iklan AI & Konten Promosi",
+    category: "AI CONTENT",
+    description:
+      "Contoh konsep visual promosi berbasis AI untuk membantu bisnis memperkenalkan produk dan layanan.",
+    image: "/portfolio/ai-ads.png",
+    alt: "Contoh Iklan AI dan Konten Promosi QAVENTA62",
+    className: "portfolio-card-wide",
   },
 ];
 
@@ -123,6 +186,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [heroIndex, setHeroIndex] = useState(0);
   const [heroEffect, setHeroEffect] = useState("fade");
+  const [websiteExampleIndex, setWebsiteExampleIndex] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -137,6 +201,14 @@ function App() {
       const nextEffect = heroEffects[Math.floor(Math.random() * heroEffects.length)];
       setHeroEffect(nextEffect);
     }, 5600);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setWebsiteExampleIndex((current) => (current + 1) % websiteExamples.length);
+    }, 3000);
 
     return () => window.clearInterval(interval);
   }, []);
@@ -199,6 +271,10 @@ function App() {
 
             <button onClick={() => scrollTo("solutions")}>
               Solusi
+            </button>
+
+            <button onClick={() => scrollTo("portfolio")}>
+              Portfolio
             </button>
 
             <button onClick={() => scrollTo("vision")}>
@@ -353,11 +429,28 @@ function App() {
 
           <div className="container two-col">
 
-            <div className="section-label">
-              01 — TENTANG KAMI
+            <div className="about-visual">
+              <div className="about-image-frame">
+                <img
+                  src="/background.png"
+                  alt="Tim QAVENTA62 mengembangkan solusi digital"
+                  loading="lazy"
+                />
+                <div className="about-image-badge">
+                  <span className="about-badge-dot"></span>
+                  DIGITAL SOLUTION PARTNER
+                </div>
+              </div>
+              <div className="about-floating-card">
+                <strong>IDEA → SOLUTION</strong>
+                <span>Teknologi yang disesuaikan dengan kebutuhan bisnis.</span>
+              </div>
             </div>
 
             <div className="about-content">
+              <div className="section-label">
+                01 — TENTANG KAMI
+              </div>
 
               <h2>
                 Teknologi yang tepat untuk{" "}
@@ -403,12 +496,12 @@ function App() {
                 </div>
 
                 <div>
-                  <strong>24/7</strong>
+                  <strong>03</strong>
 
                   <span>
-                    Siap mendukung
+                    Fokus pada
                     <br />
-                    transformasi digital
+                    solusi nyata
                   </span>
                 </div>
 
@@ -461,33 +554,142 @@ function App() {
                   key={item.number}
                 >
 
-                  <div className="solution-number">
-                    {item.number}
+                  <div className="solution-media">
+                    {item.video ? (
+                      <video
+                        className="solution-video"
+                        poster={item.image}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        aria-label={item.title}
+                        onLoadedData={(event) => {
+                          event.currentTarget.play().catch(() => {});
+                        }}
+                      >
+                        <source src={item.video} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={item.image} alt={item.title} loading="lazy" />
+                    )}
+                    <span className="solution-number">{item.number}</span>
+                    <span className="solution-icon">{item.icon}</span>
                   </div>
 
-                  <div className="solution-icon">
-                    {item.icon}
+                  <div className="solution-body">
+                    <h3>{item.title}</h3>
+
+                    <p>{item.description}</p>
+
+                    <div className="solution-features">
+                      {item.features.map((feature) => (
+                        <span key={feature}>✓ {feature}</span>
+                      ))}
+                    </div>
+
+                    <button onClick={() => scrollTo("contact")}>
+                      Konsultasikan Kebutuhan
+                      <span>↗</span>
+                    </button>
                   </div>
-
-                  <h3>
-                    {item.title}
-                  </h3>
-
-                  <p>
-                    {item.description}
-                  </p>
-
-                  <button
-                    onClick={() =>
-                      scrollTo("contact")
-                    }
-                  >
-                    Pelajari lebih lanjut
-                    <span>↗</span>
-                  </button>
 
                 </article>
 
+              ))}
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* =========================
+            PORTFOLIO & DEMO
+        ========================== */}
+        <section
+          id="portfolio"
+          className="section portfolio"
+        >
+
+          <div className="container">
+
+            <div className="section-heading portfolio-heading">
+
+              <div className="section-label">
+                03 — PORTFOLIO & DEMO
+              </div>
+
+              <h2>
+                Contoh solusi yang
+                <span> kami kembangkan.</span>
+              </h2>
+
+              <p>
+                Beberapa contoh produk dan demo yang dapat
+                disesuaikan dengan kebutuhan bisnis Anda.
+              </p>
+
+            </div>
+
+            <div className="portfolio-grid">
+
+              {portfolio.map((item) => (
+                <article
+                  className={`portfolio-card ${item.className || ""}`}
+                  key={item.title}
+                >
+
+                  <div className="portfolio-media">
+                    <img
+                      src={
+                        item.title === "Website Company Profile"
+                          ? websiteExamples[websiteExampleIndex].image
+                          : item.image
+                      }
+                      alt={
+                        item.title === "Website Company Profile"
+                          ? `Contoh Website Company Profile — ${websiteExamples[websiteExampleIndex].label}`
+                          : item.alt
+                      }
+                      className={`portfolio-main-image ${
+                        item.title === "Website Company Profile" ? "portfolio-web-flash" : ""
+                      }`}
+                      loading="lazy"
+                    />
+
+                    {item.gallery && (
+                      <div className="portfolio-gallery">
+                        {item.gallery.map((image) => (
+                          <img
+                            key={image}
+                            src={image}
+                            alt={`${item.title} screenshot`}
+                            loading="lazy"
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="portfolio-body">
+                    <span className="portfolio-category">
+                      {item.category}
+                    </span>
+
+                    <h3>{item.title}</h3>
+
+                    <p>{item.description}</p>
+
+                    <button onClick={() => scrollTo("contact")}>
+                      Konsultasikan Kebutuhan
+                      <span>↗</span>
+                    </button>
+                  </div>
+
+                </article>
               ))}
 
             </div>
@@ -507,7 +709,7 @@ function App() {
             <div className="strength-head">
 
               <div className="section-label">
-                03 — KENAPA KAMI
+                04 — KENAPA KAMI
               </div>
 
               <h2>
@@ -521,6 +723,19 @@ function App() {
 
             </div>
 
+
+            <div className="strength-showcase">
+              <div className="strength-showcase-image">
+                <img src="/portfolio/developer.png" alt="Developer QAVENTA62 sedang mengembangkan solusi software" loading="lazy" />
+              </div>
+              <div className="strength-showcase-copy">
+                <span className="mini-label">DIBANGUN UNTUK BERKEMBANG</span>
+                <h3>Dari kebutuhan sederhana sampai sistem yang lebih kompleks.</h3>
+                <p>
+                  Kami mengutamakan solusi yang mudah dipahami, dapat digunakan, dan siap dikembangkan ketika kebutuhan bisnis bertambah.
+                </p>
+              </div>
+            </div>
 
             <div className="strength-grid">
 
@@ -566,7 +781,7 @@ function App() {
             <div className="section-heading centered">
 
               <div className="section-label">
-                04 — CARA KAMI BEKERJA
+                05 — CARA KAMI BEKERJA
               </div>
 
               <h2>
@@ -592,7 +807,7 @@ function App() {
                   >
 
                     <div className="process-circle">
-                      {num}
+                      <span>{num}</span>
                     </div>
 
                     <h3>
@@ -628,12 +843,12 @@ function App() {
           <div className="container vision-inner">
 
             <div className="section-label">
-              05 — VISI & MISI
+              06 — VISI & MISI
             </div>
 
             <div className="vision-main">
 
-              <div>
+              <div className="vision-copy">
 
                 <span className="big-label">
                   VISI
@@ -651,6 +866,9 @@ function App() {
 
 
               <div className="mission">
+                <div className="mission-visual">
+                  <img src="/portfolio/mitra.png" alt="Mitra QAVENTA62 dan klien sedang berjabat tangan" loading="lazy" />
+                </div>
 
                 <span className="big-label">
                   MISI
@@ -719,8 +937,13 @@ function App() {
               +
             </div>
 
+            <div className="contact-visual">
+              <img src="/portfolio/call-center.png" alt="Tim customer service QAVENTA62" loading="lazy" />
+            </div>
+
+            <div className="contact-content">
             <div className="section-label">
-              06 — MULAI BERSAMA KAMI
+              07 — MULAI BERSAMA KAMI
             </div>
 
             <h2>
@@ -747,6 +970,7 @@ function App() {
               Diskusikan Proyek Anda
               <span>↗</span>
             </a>
+            </div>
 
           </div>
 
@@ -806,6 +1030,12 @@ function App() {
                 onClick={() => scrollTo("solutions")}
               >
                 Solusi
+              </button>
+
+              <button
+                onClick={() => scrollTo("portfolio")}
+              >
+                Portfolio
               </button>
 
               <button
