@@ -1256,3 +1256,49 @@ footer { background:#09224a; color:#fff; }
 .solution-card:nth-child(3):hover .solution-media img {
   transform: none !important;
 }
+
+
+/* =========================================================
+   FINAL FIX — Website Company Profile CARD SIZE
+   Target: samakan ukuran card Website Company Profile
+   dengan card AttendanceSmart / Aplikasi UMKM.
+   Jangan mengubah card/section lain.
+========================================================= */
+
+.portfolio-website-carousel {
+  grid-column: span 1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.portfolio-website-carousel .portfolio-media {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.portfolio-website-carousel .portfolio-main-image {
+  display: block;
+  width: 100% !important;
+  height: 250px !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .portfolio-website-carousel {
+    grid-column: 1 / -1 !important;
+  }
+
+  .portfolio-website-carousel .portfolio-main-image {
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-website-carousel .portfolio-main-image {
+    height: 210px !important;
+  }
+}
