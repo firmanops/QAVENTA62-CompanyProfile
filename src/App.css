@@ -1350,100 +1350,130 @@ footer { background:#09224a; color:#fff; }
 
 
 /* =========================================================
-   FINAL PORTFOLIO CARD EQUAL HEIGHT
-   4 cards / 2 columns desktop.
-   Semua card pada portfolio dibuat tinggi dan sejajar.
-   Tidak mengubah hero / about / strengths / vision / contact.
+   FINAL PORTFOLIO — IMAGE FULL WIDTH / NO SIDE SPACE
+   Desktop:
+   - image fills the entire media area
+   - no horizontal blank space
+   - all 4 cards remain equal width
+   - image keeps complete 16:9 content without cropping
 ========================================================= */
 
 @media (min-width: 901px) {
   .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     align-items: stretch;
   }
 
   .portfolio-card,
-  .portfolio-card-wide {
-    width: 100%;
+  .portfolio-card-wide,
+  .portfolio-website-carousel {
+    grid-column: span 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
     height: 100%;
-    min-height: 0;
     display: flex;
     flex-direction: column;
   }
 
   .portfolio-card .portfolio-media,
-  .portfolio-card-wide .portfolio-media {
-    flex: 0 0 250px;
-    height: 250px !important;
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
+    width: 100% !important;
+    max-width: none !important;
     min-height: 250px !important;
+    height: 250px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .portfolio-card .portfolio-main-image,
-  .portfolio-card-wide .portfolio-main-image {
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
     height: 250px !important;
     min-height: 250px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
+    box-shadow: none;
   }
 
   .portfolio-card .portfolio-body,
-  .portfolio-card-wide .portfolio-body {
+  .portfolio-card-wide .portfolio-body,
+  .portfolio-website-carousel .portfolio-body {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
   }
 
   .portfolio-card .portfolio-body button,
-  .portfolio-card-wide .portfolio-body button {
+  .portfolio-card-wide .portfolio-body button,
+  .portfolio-website-carousel .portfolio-body button {
     margin-top: auto;
   }
 }
 
-/* Tablet / mobile tetap 1 kolom */
+/* Tablet / mobile */
 @media (max-width: 900px) {
   .portfolio-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    grid-template-columns: 1fr !important;
   }
 
   .portfolio-card,
-  .portfolio-card-wide {
-    width: 100%;
+  .portfolio-card-wide,
+  .portfolio-website-carousel {
+    grid-column: span 1 !important;
+    width: 100% !important;
+    max-width: none !important;
     height: auto;
-    display: flex;
-    flex-direction: column;
   }
 
   .portfolio-card .portfolio-media,
-  .portfolio-card-wide .portfolio-media {
-    height: 250px !important;
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
+    width: 100% !important;
+    max-width: none !important;
     min-height: 250px !important;
-    flex: 0 0 250px;
+    height: 250px !important;
+    padding: 0 !important;
   }
 
   .portfolio-card .portfolio-main-image,
-  .portfolio-card-wide .portfolio-main-image {
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
+    width: 100% !important;
+    max-width: 100% !important;
     height: 250px !important;
     min-height: 250px !important;
-  }
-
-  .portfolio-card .portfolio-body,
-  .portfolio-card-wide .portfolio-body {
-    flex: none;
-    display: flex;
-    flex-direction: column;
+    margin: 0 !important;
+    padding: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border-radius: 0 !important;
   }
 }
 
 @media (max-width: 680px) {
   .portfolio-card .portfolio-media,
-  .portfolio-card-wide .portfolio-media {
-    height: 210px !important;
+  .portfolio-card-wide .portfolio-media,
+  .portfolio-website-carousel .portfolio-media {
     min-height: 210px !important;
-    flex-basis: 210px;
+    height: 210px !important;
   }
 
   .portfolio-card .portfolio-main-image,
-  .portfolio-card-wide .portfolio-main-image {
+  .portfolio-card-wide .portfolio-main-image,
+  .portfolio-website-carousel .portfolio-main-image {
     height: 210px !important;
     min-height: 210px !important;
   }
