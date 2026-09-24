@@ -1212,15 +1212,6 @@ footer { background:#09224a; color:#fff; }
     width: 100%;
     max-width: 600px;
   }
-
-  /* ABOUT IMAGE — make the visual taller while keeping it clean */
-  .about-image-frame img {
-    width: 100%;
-    height: 390px;
-    aspect-ratio: auto;
-    object-fit: cover;
-    object-position: center center;
-  }
 }
 
 /* Website Company Profile — rotating visual examples */
@@ -1589,4 +1580,77 @@ footer { background:#09224a; color:#fff; }
   0% { opacity: 0; transform: scale(.985); filter: blur(2px); }
   55% { opacity: 1; transform: scale(1.01); filter: blur(0); }
   100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+
+/* =========================================================
+   QAVENTA62 — MOBILE HERO IMAGE FIX
+   Prevent the hero artwork from being cropped on phones.
+   Desktop/tablet desktop rules remain untouched.
+========================================================= */
+
+@media (max-width: 900px) {
+  .hero-visual {
+    height: clamp(230px, 58vw, 340px) !important;
+    width: 100% !important;
+    transform: none !important;
+    transform-origin: center center !important;
+    margin: 18px 0 0 !important;
+  }
+
+  .hero-image-wrapper {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    border-radius: 22px !important;
+  }
+
+  .hero-image-layer {
+    inset: 0 !important;
+  }
+
+  .hero-team-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    background: #eaf4ff;
+  }
+
+  .hero-carousel-progress {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 8px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-visual {
+    height: 225px !important;
+    width: 100% !important;
+    margin: 18px 0 0 !important;
+  }
+
+  .hero-image-wrapper {
+    inset: 0 !important;
+    border-radius: 20px !important;
+  }
+
+  .hero-carousel-card-top {
+    top: 14px !important;
+    right: 6px !important;
+  }
+
+  .hero-carousel-card-bottom {
+    left: 6px !important;
+    bottom: 38px !important;
+  }
+
+  .hero-carousel-progress {
+    left: 14px !important;
+    right: 14px !important;
+    bottom: 7px !important;
+  }
 }
