@@ -42,22 +42,19 @@ const solutions = [
 ];
 
 const websiteExamples = [
-  {
-    image: "/portfolio/web-examples/01-login.png",
-    label: "Login AttendanceSmart",
-  },
-  {
-    image: "/portfolio/web-examples/02-mobile-checkin.png",
-    label: "Mobile Check In / Check Out",
-  },
-  {
-    image: "/portfolio/web-examples/03-attendance-report.png",
-    label: "Laporan Kehadiran",
-  },
-  {
-    image: "/portfolio/web-examples/04-approval-leave.png",
-    label: "Approval Pengajuan Izin",
-  },
+  { image: "/portfolio/web-examples/corporate.png", label: "Corporate" },
+  { image: "/portfolio/web-examples/restaurant.png", label: "Restaurant / Café" },
+  { image: "/portfolio/web-examples/property.png", label: "Property / Real Estate" },
+  { image: "/portfolio/web-examples/ecommerce.png", label: "E-Commerce / Online Store" },
+  { image: "/portfolio/web-examples/clinic.png", label: "Clinic / Hospital" },
+  { image: "/portfolio/web-examples/education.png", label: "Education / School" },
+];
+
+const attendanceExamples = [
+  { image: "/portfolio/attendance/01-login.png", label: "Login AttendanceSmart" },
+  { image: "/portfolio/attendance/02-mobile-checkin.png", label: "Mobile Check In / Check Out" },
+  { image: "/portfolio/attendance/03-attendance-report.png", label: "Laporan Kehadiran" },
+  { image: "/portfolio/attendance/04-approval-leave.png", label: "Approval Pengajuan Izin" },
 ];
 
 const strengths = [
@@ -152,6 +149,7 @@ function App() {
   const [heroIndex, setHeroIndex] = useState(0);
   const [heroEffect, setHeroEffect] = useState("fade");
   const [websiteExampleIndex, setWebsiteExampleIndex] = useState(0);
+  const [attendanceExampleIndex, setAttendanceExampleIndex] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -173,6 +171,14 @@ function App() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setWebsiteExampleIndex((current) => (current + 1) % websiteExamples.length);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setAttendanceExampleIndex((current) => (current + 1) % attendanceExamples.length);
     }, 3000);
 
     return () => window.clearInterval(interval);
@@ -537,17 +543,23 @@ function App() {
                         src={
                           item.title === "Website Company Profile"
                             ? websiteExamples[websiteExampleIndex].image
-                            : item.image
+                            : item.title === "AttendanceSmart"
+                              ? attendanceExamples[attendanceExampleIndex].image
+                              : item.image
                         }
                         alt={
                           item.title === "Website Company Profile"
                             ? `Contoh Website Company Profile — ${websiteExamples[websiteExampleIndex].label}`
-                            : item.title
+                            : item.title === "AttendanceSmart"
+                              ? `AttendanceSmart — ${attendanceExamples[attendanceExampleIndex].label}`
+                              : item.title
                         }
                         className={
                           item.title === "Website Company Profile"
                             ? "solution-main-image solution-web-flash"
-                            : "solution-main-image"
+                            : item.title === "AttendanceSmart"
+                              ? "solution-main-image attendance-web-flash"
+                              : "solution-main-image"
                         }
                         loading="lazy"
                       />

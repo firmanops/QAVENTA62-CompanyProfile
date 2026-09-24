@@ -1557,29 +1557,13 @@ footer { background:#09224a; color:#fff; }
   }
 }
 
-/* =========================================================
-   WEBSITE COMPANY PROFILE — APP SCREEN FLASH
-   Rotates the supplied AttendanceSmart screenshots without
-   changing the rest of the approved solution-card layout.
-========================================================= */
-.solution-web-flash {
-  animation: solutionWebFlash 700ms cubic-bezier(.22,.75,.25,1);
+/* AttendanceSmart — rotating application screens */
+.attendance-web-flash {
+  animation: attendanceWebFlash 700ms cubic-bezier(.22,.75,.25,1);
 }
 
-@keyframes solutionWebFlash {
-  0% {
-    opacity: 0;
-    transform: scale(.985);
-    filter: blur(2px);
-  }
-  55% {
-    opacity: 1;
-    transform: scale(1.01);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
+@keyframes attendanceWebFlash {
+  0% { opacity: 0; transform: scale(.985); filter: blur(2px); }
+  55% { opacity: 1; transform: scale(1.01); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
