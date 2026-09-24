@@ -1232,13 +1232,13 @@ footer { background:#09224a; color:#fff; }
 
 .portfolio-website-carousel .portfolio-main-image {
   display: block;
-  width: 100%;
+  width: 80%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: contain !important;
   object-position: center center;
   border-radius: 14px;
-  background: #eef5fc;
+  margin: 0 auto;
 }
 
 /* PORTFOLIO / SOLUTIONS — show complete source screenshots without cropping */
