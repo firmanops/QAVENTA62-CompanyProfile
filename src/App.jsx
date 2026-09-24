@@ -415,7 +415,7 @@ function App() {
             <div className="about-visual">
               <div className="about-image-frame">
                 <img
-                  src="/about-qaventa62-wide.png"
+                  src="/about-qaventa62-second.png"
                   alt="Tim QAVENTA62 mengembangkan solusi digital"
                   loading="lazy"
                 />
