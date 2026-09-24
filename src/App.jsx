@@ -42,12 +42,22 @@ const solutions = [
 ];
 
 const websiteExamples = [
-  { image: "/portfolio/web-examples/corporate.png", label: "Corporate" },
-  { image: "/portfolio/web-examples/restaurant.png", label: "Restaurant / Café" },
-  { image: "/portfolio/web-examples/property.png", label: "Property / Real Estate" },
-  { image: "/portfolio/web-examples/ecommerce.png", label: "E-Commerce / Online Store" },
-  { image: "/portfolio/web-examples/clinic.png", label: "Clinic / Hospital" },
-  { image: "/portfolio/web-examples/education.png", label: "Education / School" },
+  {
+    image: "/portfolio/web-examples/01-login.png",
+    label: "Login AttendanceSmart",
+  },
+  {
+    image: "/portfolio/web-examples/02-mobile-checkin.png",
+    label: "Mobile Check In / Check Out",
+  },
+  {
+    image: "/portfolio/web-examples/03-attendance-report.png",
+    label: "Laporan Kehadiran",
+  },
+  {
+    image: "/portfolio/web-examples/04-approval-leave.png",
+    label: "Approval Pengajuan Izin",
+  },
 ];
 
 const strengths = [
