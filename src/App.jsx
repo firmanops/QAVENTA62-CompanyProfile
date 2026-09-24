@@ -50,51 +50,6 @@ const websiteExamples = [
   { image: "/portfolio/web-examples/education.png", label: "Education / School" },
 ];
 
-const portfolio = [
-  {
-    title: "Website Company Profile",
-    category: "WEB DEVELOPMENT",
-    description:
-      "Website company profile dengan tampilan profesional untuk membantu bisnis membangun kehadiran digital.",
-    image: websiteExamples[0].image,
-    alt: `Contoh Website Company Profile — ${websiteExamples[0].label}`,
-    className: "portfolio-card-wide portfolio-website-carousel",
-  },
-  {
-    title: "AttendanceSmart",
-    category: "SMART ATTENDANCE",
-    description:
-      "Sistem absensi dengan dashboard administrasi dan dukungan fitur kehadiran berbasis mobile.",
-    image: "/portfolio/attendance/1.png",
-    alt: "Tampilan AttendanceSmart",
-    gallery: [
-      "/portfolio/attendance/2.png",
-      "/portfolio/attendance/3.png",
-    ],
-  },
-  {
-    title: "Aplikasi UMKM",
-    category: "BUSINESS APPLICATION",
-    description:
-      "Aplikasi untuk membantu operasional UMKM seperti dashboard, produk, transaksi, dan point of sale.",
-    image: "/portfolio/umkm/1.png",
-    alt: "Tampilan Aplikasi UMKM",
-    gallery: [
-      "/portfolio/umkm/2.png",
-      "/portfolio/umkm/3.png",
-    ],
-  },
-  {
-    title: "Iklan AI & Konten Promosi",
-    category: "AI CONTENT",
-    description:
-      "Contoh konsep visual promosi berbasis AI untuk membantu bisnis memperkenalkan produk dan layanan.",
-    image: "/portfolio/ai-ads.png",
-    alt: "Contoh Iklan AI dan Konten Promosi QAVENTA62",
-    className: "portfolio-card-wide",
-  },
-];
-
 const strengths = [
   [
     "01",
@@ -271,10 +226,6 @@ function App() {
 
             <button onClick={() => scrollTo("solutions")}>
               Solusi
-            </button>
-
-            <button onClick={() => scrollTo("portfolio")}>
-              Portfolio
             </button>
 
             <button onClick={() => scrollTo("vision")}>
@@ -572,7 +523,24 @@ function App() {
                         <source src={item.video} type="video/mp4" />
                       </video>
                     ) : (
-                      <img src={item.image} alt={item.title} loading="lazy" />
+                      <img
+                        src={
+                          item.title === "Website Company Profile"
+                            ? websiteExamples[websiteExampleIndex].image
+                            : item.image
+                        }
+                        alt={
+                          item.title === "Website Company Profile"
+                            ? `Contoh Website Company Profile — ${websiteExamples[websiteExampleIndex].label}`
+                            : item.title
+                        }
+                        className={
+                          item.title === "Website Company Profile"
+                            ? "solution-main-image solution-web-flash"
+                            : "solution-main-image"
+                        }
+                        loading="lazy"
+                      />
                     )}
                     <span className="solution-number">{item.number}</span>
                     <span className="solution-icon">{item.icon}</span>
@@ -607,99 +575,6 @@ function App() {
 
 
         {/* =========================
-            PORTFOLIO & DEMO
-        ========================== */}
-        <section
-          id="portfolio"
-          className="section portfolio"
-        >
-
-          <div className="container">
-
-            <div className="section-heading portfolio-heading">
-
-              <div className="section-label">
-                03 — PORTFOLIO & DEMO
-              </div>
-
-              <h2>
-                Contoh solusi yang
-                <span> kami kembangkan.</span>
-              </h2>
-
-              <p>
-                Beberapa contoh produk dan demo yang dapat
-                disesuaikan dengan kebutuhan bisnis Anda.
-              </p>
-
-            </div>
-
-            <div className="portfolio-grid">
-
-              {portfolio.map((item) => (
-                <article
-                  className={`portfolio-card ${item.className || ""}`}
-                  key={item.title}
-                >
-
-                  <div className="portfolio-media">
-                    <img
-                      src={
-                        item.title === "Website Company Profile"
-                          ? websiteExamples[websiteExampleIndex].image
-                          : item.image
-                      }
-                      alt={
-                        item.title === "Website Company Profile"
-                          ? `Contoh Website Company Profile — ${websiteExamples[websiteExampleIndex].label}`
-                          : item.alt
-                      }
-                      className={`portfolio-main-image ${
-                        item.title === "Website Company Profile" ? "portfolio-web-flash" : ""
-                      }`}
-                      loading="lazy"
-                    />
-
-                    {item.gallery && (
-                      <div className="portfolio-gallery">
-                        {item.gallery.map((image) => (
-                          <img
-                            key={image}
-                            src={image}
-                            alt={`${item.title} screenshot`}
-                            loading="lazy"
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="portfolio-body">
-                    <span className="portfolio-category">
-                      {item.category}
-                    </span>
-
-                    <h3>{item.title}</h3>
-
-                    <p>{item.description}</p>
-
-                    <button onClick={() => scrollTo("contact")}>
-                      Konsultasikan Kebutuhan
-                      <span>↗</span>
-                    </button>
-                  </div>
-
-                </article>
-              ))}
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =========================
             STRENGTHS
         ========================== */}
         <section className="section strengths">
@@ -709,7 +584,7 @@ function App() {
             <div className="strength-head">
 
               <div className="section-label">
-                04 — KENAPA KAMI
+                03 — KENAPA KAMI
               </div>
 
               <h2>
@@ -781,7 +656,7 @@ function App() {
             <div className="section-heading centered">
 
               <div className="section-label">
-                05 — CARA KAMI BEKERJA
+                04 — CARA KAMI BEKERJA
               </div>
 
               <h2>
@@ -843,7 +718,7 @@ function App() {
           <div className="container vision-inner">
 
             <div className="section-label">
-              06 — VISI & MISI
+              05 — VISI & MISI
             </div>
 
             <div className="vision-main">
@@ -943,7 +818,7 @@ function App() {
 
             <div className="contact-content">
             <div className="section-label">
-              07 — MULAI BERSAMA KAMI
+              06 — MULAI BERSAMA KAMI
             </div>
 
             <h2>
@@ -1030,12 +905,6 @@ function App() {
                 onClick={() => scrollTo("solutions")}
               >
                 Solusi
-              </button>
-
-              <button
-                onClick={() => scrollTo("portfolio")}
-              >
-                Portfolio
               </button>
 
               <button
