@@ -544,6 +544,11 @@ function App() {
                 >
 
                   <div className="solution-media">
+                    {item.title === "AttendanceSmart" && (
+                      <div className="attendance-coming-soon-badge">
+                        SEGERA HADIR
+                      </div>
+                    )}
                     {item.video ? (
                       <video
                         key={
