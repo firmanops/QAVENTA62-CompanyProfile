@@ -40,7 +40,7 @@ const solutions = [
     videos: [
       "/portfolio/video/ai-content-card.mp4",
       "/portfolio/video/credifox.mp4",
-      "/portfolio/video/Daiwa_Review_1.mp4",
+      "/portfolio/video/madu.mp4",
     ],
     features: ["AI Visual", "Video Content", "Campaign Creative"],
   },
